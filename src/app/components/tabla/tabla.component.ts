@@ -8,16 +8,31 @@ import { Component, OnInit } from '@angular/core';
 export class TablaComponent implements OnInit {
   
   eliminando:boolean=false;
+  opcion:string="";
+  boton:string="";
+  color:string="";
   
   constructor() { }
 
   ngOnInit(): void {
   }
   
+  nuevo(){
+    this.opcion="nuevo";
+    this.boton="Guardar";
+    this.color="primary";
+  }
+
+  modificar(){
+    this.opcion="modificar";
+    this.boton="Modificar";
+    this.color="success";
+  }
   
   eliminar(){
-    this.eliminando = confirm("realmente desea eliminar este usuario?");
-    this.eliminando ? alert("el usuario se ha eliminado"): alert("el usuario continua");
+    this.opcion="eliminar";
+    this.boton="Eliminar";
+    this.color="danger";
   }
 
 }
