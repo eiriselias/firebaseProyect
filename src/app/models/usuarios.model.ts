@@ -4,5 +4,6 @@ export class Usuarios {
     nombre: string,
     apellido: string,
     cargo: string,
+    salario: number
     ){}
 }
