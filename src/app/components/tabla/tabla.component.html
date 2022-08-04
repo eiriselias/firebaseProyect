@@ -1,30 +1,30 @@
 <div class="container">
     <h1>Tabla De Usuarios modificar</h1>
     <div>
-      <button type="button" (click)="nuevo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoUsuario" data-bs-whatever="@mdo">Nuevo Usuario</button>
+      <button type="button" (click)="nuevo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoUsuario">Nuevo Usuario</button>
     </div>
     
     <table>
       <thead>
         <tr>
-          <th class="px-3">ID</th>
-          <th class="px-3">NOMBRE</th>
-          <th class="px-3">APELLIDO</th>
-          <th class="px-3">CARGO</th>
-          <th class="px-3">SALARIO</th>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>APELLIDO</th>
+          <th>CARGO</th>
+          <th>SALARIO</th>
           <th class="text-center">ACCION</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>.</th>
-          <th>.</th>
-          <th>.</th>
-          <th>.</th>
-          <th>.</th>
+        <tr *ngFor="let usuario of usuarios; index as i">
+          <th>{{i+1}}</th>
+          <th>{{usuario.nombre}}</th>
+          <th>{{usuario.apellido}}</th>
+          <th>{{usuario.cargo}}</th>
+          <th>{{usuario.salario}}</th>
           <th>
-            <button type="button" (click)="modificar()" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#modificarUsuario" data-bs-whatever="@mdo">Modificar</button>
-            <button type="button" (click)="eliminar()" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" data-bs-whatever="@mdo">Eliminar</button>
+            <button type="button" (click)="modificar(i)" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#modificarUsuario">Modificar</button>
+            <button type="button" (click)="eliminar(i)" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#eliminarUsuario">Eliminar</button>
           </th>
         </tr>
       </tbody>
@@ -36,25 +36,25 @@
       <div class="modal-content">
         <div class="modal-header bg-{{color}} text-white">
           <h5 class="modal-title" id="nuevoUsuarioLabel">{{opcion}} usuario</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" (click)="nuevoUsuario.reset()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form *ngIf="opcion != 'eliminar'">
+          <form [formGroup]="nuevoUsuario" *ngIf="opcion != 'eliminar'" >
             <div class="mb-3">
               <label for="nombre" class="col-form-label">Nombre:</label>
-              <input type="text" class="form-control" id="nombre">
+              <input type="text" formControlName="nombre" class="form-control" id="nombre">
             </div>
             <div class="mb-3">
                 <label for="apellido" class="col-form-label">Apellido:</label>
-                <input type="text" class="form-control" id="apellido">
+                <input type="text" formControlName="apellido" class="form-control" id="apellido">
             </div>
             <div class="mb-3">
                 <label for="cargo" class="col-form-label">Cargo:</label>
-                <input type="text" class="form-control" id="cargo">
+                <input type="text" formControlName="cargo" class="form-control" id="cargo">
             </div>
             <div class="mb-3">
                 <label for="salario" class="col-form-label">Salario:</label>
-                <input type="number" class="form-control" id="salario">
+                <input type="number" formControlName="salario" class="form-control" id="salario">
               </div>            
           </form>
           <div *ngIf="opcion == 'eliminar'">
@@ -62,8 +62,8 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-{{color}}">{{boton}}</button>
+          <button type="button" (click)="nuevoUsuario.reset()" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" (click)="accion()" class="btn btn-{{color}}" data-bs-dismiss="modal">{{boton}}</button>
         </div>
       </div>
     </div>

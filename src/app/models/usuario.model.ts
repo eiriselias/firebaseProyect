@@ -1,6 +1,5 @@
-export class Usuarios {
+export class Usuario {
     constructor(
-    id : number,
     nombre: string,
     apellido: string,
     cargo: string,
