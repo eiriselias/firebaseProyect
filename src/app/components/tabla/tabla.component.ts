@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
 import { ListaUsuariosService } from 'src/app/services/lista-usuarios.service';
 
 @Component({
@@ -23,7 +24,10 @@ export class TablaComponent implements OnInit {
   })
   
   
-  constructor(private usuariosTabla:ListaUsuariosService) {
+  constructor(
+    private usuariosTabla:ListaUsuariosService,
+    private data:DataService
+    ) {
 
    }
 
@@ -58,7 +62,8 @@ export class TablaComponent implements OnInit {
   }
   accion(){
     if(this.opcion=="nuevo"){
-      this.usuarios.push(this.nuevoUsuario.value)
+      this.usuarios.push(this.nuevoUsuario.value);
+      this.data.guardarUsuarios(this.usuarios);
       this.nuevoUsuario.reset();
     }
     if(this.opcion=="modificar"){
