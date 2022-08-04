@@ -1,0 +1,121 @@
+<div class="container">
+    <h1>Tabla De Usuarios</h1>
+    <div>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoUsuario" data-bs-whatever="@mdo">Nuevo Usuario</button>
+    </div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th class="px-3">ID</th>
+          <th class="px-3">NOMBRE</th>
+          <th class="px-3">APELLIDO</th>
+          <th class="px-3">CARGO</th>
+          <th class="px-3">SALARIO</th>
+          <th class="text-center">ACCION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>.</th>
+          <th>.</th>
+          <th>.</th>
+          <th>.</th>
+          <th>.</th>
+          <th>
+            <button type="button" class="btn btn-secondary mx-1" data-bs-toggle="modal" data-bs-target="#modificarUsuario" data-bs-whatever="@mdo">Modificar</button>
+            <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" data-bs-whatever="@mdo">Eliminar</button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="modal fade" id="nuevoUsuario" tabindex="-1" aria-labelledby="nuevoUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="nuevoUsuarioLabel">Nuevo Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="col-form-label">Apellido:</label>
+                <input type="text" class="form-control" id="apellido">
+            </div>
+            <div class="mb-3">
+                <label for="cargo" class="col-form-label">Cargo:</label>
+                <input type="text" class="form-control" id="cargo">
+            </div>
+            <div class="mb-3">
+                <label for="salario" class="col-form-label">Salario:</label>
+                <input type="number" class="form-control" id="salario">
+              </div>            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modificarUsuario" tabindex="-1" aria-labelledby="modificarUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-secondary text-white">
+          <h5 class="modal-title" id="modificarUsuarioLabel">Modificar Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">Nombre:</label>
+              <input type="text" class="form-control" id="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="apellido" class="col-form-label">Apellido:</label>
+                <input type="text" class="form-control" id="apellido">
+            </div>
+            <div class="mb-3">
+                <label for="cargo" class="col-form-label">Cargo:</label>
+                <input type="text" class="form-control" id="cargo">
+            </div>
+            <div class="mb-3">
+                <label for="salario" class="col-form-label">Salario:</label>
+                <input type="number" class="form-control" id="salario">
+              </div>            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Modificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="eliminarUsuario" tabindex="-1" aria-labelledby="eliminarUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="eliminarUsuarioLabel">Eliminar Usuario</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <h5>Realmente desea eliminar al usuario?</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
