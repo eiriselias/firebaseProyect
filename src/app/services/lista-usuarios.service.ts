@@ -13,7 +13,7 @@ export class ListaUsuariosService {
     {nombre:"jhan", apellido:"aguilar", cargo:"mecanico", salario:200}
   ]*/
 
-  usuarios:any;
+  usuarios:Usuario=[];
 
   constructor( private data:DataService) { }
   

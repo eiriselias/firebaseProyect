@@ -10,7 +10,7 @@ export class DataService {
   constructor(private httpClient:HttpClient) {}
 
   cargarUsuarios(){
-    return this.httpClient.get('https://listatareas-7b615-default-rtdb.firebaseio.com/data.json')
+    return this.httpClient.get('https://listatareas-7b615-default-rtdb.firebaseio.com/data.json');
   }
 
   guardarUsuarios(usuarios:Usuario[]){
