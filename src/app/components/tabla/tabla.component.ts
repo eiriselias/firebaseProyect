@@ -32,7 +32,13 @@ export class TablaComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.usuarios = this.usuariosTabla.usuarios;
+    //this.usuarios = this.usuariosTabla.usuarios;
+    this.usuariosTabla.obtenerUsuarios().subscribe(registros => {
+      this.usuarios = Object.values(registros);
+      this.usuariosTabla.setUsuarios(this.usuarios);
+      this.usuarios = this.usuariosTabla.usuarios;
+    })
+
   }
   
   nuevo(){

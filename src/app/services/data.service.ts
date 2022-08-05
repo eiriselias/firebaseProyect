@@ -9,9 +9,13 @@ export class DataService {
 
   constructor(private httpClient:HttpClient) {}
 
+  cargarUsuarios(){
+    return this.httpClient.get('https://listatareas-7b615-default-rtdb.firebaseio.com/data.json')
+  }
+
   guardarUsuarios(usuarios:Usuario[]){
 
-    this.httpClient.post('https://listatareas-7b615-default-rtdb.firebaseio.com/data.json', usuarios).subscribe(
+    this.httpClient.put('https://listatareas-7b615-default-rtdb.firebaseio.com/data.json', usuarios).subscribe(
       response => console.log("se han guardado los ususarios"+response),
       error => console.log("Error: "+ error)
     )
