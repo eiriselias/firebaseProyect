@@ -1,23 +1,31 @@
 <div class="container">
-    <h1>Tabla De Usuarios modificar</h1>
+  <div>
+    <h1 class="text-center my-4">Ejercicio CRUD utilizando Firebase</h1>
+  </div>
+    
     <div>
+      <div aling="justify">
+      <p>En este ejercio crearemos un CRUD y utilizaremos la base de datos remota desde 
+        firebase, ademas se utilizara un modal para recopilar los datos, este modal sera unico para las tres 
+        opciones, usuario nuevo, modificar usuario y eliminar, segun eleccion el modal se acomodara para hacer 
+        la opcion correspondiente</p></div>
       <button type="button" (click)="nuevo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsuario" data-bs-whatever="nuevo">Nuevo Usuario</button>
     </div>
     
-    <table>
+    <table class="table">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>NOMBRE</th>
-          <th>APELLIDO</th>
-          <th>CARGO</th>
-          <th>SALARIO</th>
-          <th class="text-center">ACCION</th>
+          <th scope="col">ID</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">APELLIDO</th>
+          <th scope="col">CARGO</th>
+          <th scope="col">SALARIO</th>
+          <th scope="col" class="text-center">ACCION</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let usuario of usuarios; index as i">
-          <th>{{i+1}}</th>
+        <tr class="table-info" *ngFor="let usuario of usuarios; index as i">
+          <th scope="row" >{{i+1}}</th>
           <th>{{usuario.nombre}}</th>
           <th>{{usuario.apellido}}</th>
           <th>{{usuario.cargo}}</th>
