@@ -1,7 +1,7 @@
 <div class="container">
     <h1>Tabla De Usuarios modificar</h1>
     <div>
-      <button type="button" (click)="nuevo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#nuevoUsuario">Nuevo Usuario</button>
+      <button type="button" (click)="nuevo()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalUsuario" data-bs-whatever="nuevo">Nuevo Usuario</button>
     </div>
     
     <table>
@@ -23,15 +23,15 @@
           <th>{{usuario.cargo}}</th>
           <th>{{usuario.salario}}</th>
           <th>
-            <button type="button" (click)="modificar(i)" class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#modificarUsuario">Modificar</button>
-            <button type="button" (click)="eliminar(i)" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#eliminarUsuario">Eliminar</button>
+            <button type="button" (click)="modificar(i)"  class="btn btn-success mx-1" data-bs-toggle="modal" data-bs-target="#modalUsuario" data-bs-whatever="modificar">Modificar</button>
+            <button type="button" (click)="eliminar(i)" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#modalUsuario" data-bs-whatever="eliminar">Eliminar</button>
           </th>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="modal fade" id="{{opcion}}Usuario" tabindex="-1" aria-labelledby="nuevoUsuarioLabel" aria-hidden="true">
+  <div class="modal fade" id="modalUsuario" tabindex="-1" aria-labelledby="nuevoUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-{{color}} text-white">
@@ -58,7 +58,7 @@
               </div>            
           </form>
           <div *ngIf="opcion == 'eliminar'">
-            <h5>Realmente desea eliminar al usuario?</h5>
+            <h5>Realmente desea eliminar al usuario {{usuEliminar.nombre}} {{usuEliminar.apellido}}?</h5>
           </div>
         </div>
         <div class="modal-footer">

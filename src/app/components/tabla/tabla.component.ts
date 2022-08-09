@@ -16,6 +16,7 @@ export class TablaComponent implements OnInit {
   boton:string="";
   color:string="";
   usuarios:any;
+  usuEliminar:any;
   nuevoUsuario = new FormGroup({
     nombre: new FormControl(""),
     apellido: new FormControl(""),
@@ -38,13 +39,13 @@ export class TablaComponent implements OnInit {
       this.usuariosTabla.setUsuarios(this.usuarios);
       this.usuarios = this.usuariosTabla.usuarios;
     })
-
   }
-  
+
+  //decoradores del modal segun la opcion o boton  seleccionado
   nuevo(){
     this.opcion="nuevo";
     this.boton="Guardar";
-    this.color="primary";
+    this.color="primary";    
   }
 
   modificar(i:number){
@@ -65,7 +66,10 @@ export class TablaComponent implements OnInit {
     this.boton="Eliminar";
     this.color="danger";
     this.id = i;
+    this.usuEliminar = this.usuarios[this.id];
   }
+
+  //acciones segun opcion o boton seleccionado
   accion(){
     if(this.opcion=="nuevo"){
       this.usuarios.push(this.nuevoUsuario.value);
@@ -74,10 +78,12 @@ export class TablaComponent implements OnInit {
     }
     if(this.opcion=="modificar"){
       this.usuarios[this.id] = this.nuevoUsuario.value;
+      this.data.guardarUsuarios(this.usuarios);
       this.nuevoUsuario.reset();
     }
     if(this.opcion=="eliminar"){
       this.usuarios = this.usuarios.filter((us:number)=> us != this.usuarios[this.id])
+      this.data.guardarUsuarios(this.usuarios)
     }
   }
 

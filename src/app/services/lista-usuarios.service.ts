@@ -23,7 +23,6 @@ export class ListaUsuariosService {
 
   setUsuarios(misUsuarios:any){
     
-    this.usuarios = misUsuarios[0];
-    console.log(this.usuarios)
+    this.usuarios = misUsuarios;
   }
 }
